@@ -2,11 +2,11 @@
 BUILDER_IMAGE="ubuntu:22.04"
 RUNTIME_IMAGE="ubuntu:22.04"
 
-PUSH_IMAGE="905418053260.dkr.ecr.us-east-1.amazonaws.com/dinhnn/sagemaker/training/huggingface-pytorch-training:1.13-transformers4.41-gpu-py39-cu117-ubuntu20.04-v0.0.2"
+PUSH_IMAGE="905418053260.dkr.ecr.us-east-1.amazonaws.com/dinhnn/sagemaker/training/huggingface-pytorch-training:1.13-transformers4.41-gpu-py39-cu117-ubuntu22.04-v0.0.2"
 
 export PIP_DEFAULT_TIMEOUT=100
 
-DOCKER_BUILDKIT=0 docker build \
+DOCKER_BUILDKIT=0 docker build -f dockerfiles/Dockerfile \
 --build-arg BUILDER_IMAGE=$BUILDER_IMAGE \
 --build-arg RUNTIME_IMAGE=$RUNTIME_IMAGE \
 --build-arg PYTORCH_DOWNLOAD_URL=https://download.pytorch.org/whl/cu117/torch_stable.html \
